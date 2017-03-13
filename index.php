@@ -97,7 +97,7 @@
 			$this->move($dir);
 			$url=$this->onedrive($dir);
 			$this->unlink($dir);
-			return "<a class=\"class="btn btn-info"\" href=".$url.">下载</a>";
+			return "<a class=\"btn btn-info\" href=".$url.">下载</a>";
 		}
 		protected function size_jugg(){
 			if($_FILES['file']['size']<SIZE){
