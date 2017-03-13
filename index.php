@@ -93,11 +93,13 @@
 			
 		}
 		function upload(){
-			$dir=$this->dir();
-			$this->move($dir);
-			$url=$this->filecreate($dir);
-			$this->unlink($dir);
-			return $url;
+			if($this->size_jugg()){
+				$dir=$this->dir();
+				$this->move($dir);
+				$url=$this->filecreate($dir);
+				$this->unlink($dir);
+				return $url;
+			}
 		}
 		protected function mkdir(){
 			mkdir("./hash/".$this->hash);
@@ -109,7 +111,7 @@
 			$url=$this->onedrive($dir);
 			$share_url="http://".$_SERVER['HTTP_HOST']."/hash/".$this->hash;//如果是HTTPS请自行修改
 			$a="<a href=\"".$url."\" id=\"url_value\">".$url."</a>";
-			$re="<a href=\"".$share_url."\" id=\"url_value\">".$share_url."</a>";
+			$re="点击此处下载: <a href=\"".$share_url."\" id=\"url_value\">下载链接</a>";
 			$page=$header.$a.$footer;
 			$status=@file_put_contents("./hash/".$this->hash."/index.html", $page);
 			return $re;
