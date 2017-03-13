@@ -87,7 +87,7 @@
 </html>
 <?php
 	class onedrive{
-		
+		public $hash;
 		function __construct()
 		{
 			
@@ -95,9 +95,24 @@
 		function upload(){
 			$dir=$this->dir();
 			$this->move($dir);
-			$url=$this->onedrive($dir);
+			$url=$this->filecreate($dir);
 			$this->unlink($dir);
-			return "<a class=\"btn btn-info\" href=".$url.">下载</a>";
+			return $url;
+		}
+		protected function mkdir(){
+			mkdir("./hash/".$this->hash);
+		}
+		protected function filecreate($dir){
+			$this->mkdir();
+			$header=@file_get_contents("./static/header.html");
+			$footer=@file_get_contents("./static/footer.html");
+			$url=$this->onedrive($dir);
+			$share_url="http://".$_SERVER['HTTP_HOST']."/hash/".$this->hash;//如果是HTTPS请自行修改
+			$a="<a href=\"".$url."\" id=\"url_value\">".$url."</a>";
+			$re="<a href=\"".$share_url."\" id=\"url_value\">".$share_url."</a>";
+			$page=$header.$a.$footer;
+			$status=@file_put_contents("./hash/".$this->hash."/index.html", $page);
+			return $re;
 		}
 		protected function size_jugg(){
 			if($_FILES['file']['size']<SIZE){
@@ -110,6 +125,7 @@
 			$name_array=explode(".", $_FILES['file']['name']);
 			$ex=array_pop($name_array);
 			$fn=md5($_FILES['file']['tmp_name']);
+			$this->hash=$fn;
 			return $fn.".".$ex;
 		}
 		protected function move($dir){
