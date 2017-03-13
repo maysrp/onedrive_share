@@ -20,7 +20,9 @@ PHP>5.3 PHP<7
 define('SIZE',1000000);//该项为限制上传文件的大小
 define('PASS','123456');//密码 密码若为空则不验证。
 ```
-/uploads 设置为777 
+/download/ 设置为777 
+
+/hash/ 设置777
 ###php.ini 配置
 修改以下配置
 ```
@@ -38,3 +40,6 @@ upload_max_filesize = 200m //最大上传文件大小
 post_max_size = 200m //post最大文件大小
 ```
 开启PHP禁止函数 : disable_functions中的exec()
+
+### 广告修改
+/static/ad.html
