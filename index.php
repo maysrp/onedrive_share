@@ -110,8 +110,8 @@
 			$footer=@file_get_contents("./static/footer.html");
 			$url=$this->onedrive($dir);
 			$share_url="http://".$_SERVER['HTTP_HOST']."/hash/".$this->hash;//如果是HTTPS请自行修改
-			$a="<a href=\"".$url."\" id=\"url_value\">".$url."</a>";
-			$re="点击此处下载: <a href=\"".$share_url."\" id=\"url_value\">下载链接</a>";
+			$a="<a href=\"".$url."\" id=\"url_value\">点击此处下载文件</a>";
+			$re="分享该链接:<a href=\"".$share_url."\" id=\"url_value\">".$share_url."</a>";
 			$page=$header.$a.$footer;
 			$status=@file_put_contents("./hash/".$this->hash."/index.html", $page);
 			return $re;
