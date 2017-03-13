@@ -46,4 +46,6 @@ post_max_size = 200m //post最大文件大小
 开启PHP禁止函数 : disable_functions中的exec()
 
 ### 广告修改
-/static/ad.html
+/static/footer.html
+
+第8行 代码修改即可
