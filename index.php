@@ -75,9 +75,7 @@
 				$bt=$upfi->upload();	
 		?>
 				<div class="text-center" style="margin: 30px;">
-					<button class="btn btn-info">
 						<?php echo $bt ?>	
-					</button>
 				</div>
 			</div>
 		</div>
@@ -98,8 +96,8 @@
 			$dir=$this->dir();
 			$this->move($dir);
 			$url=$this->onedrive($dir);
-			return "<a href=".$url.">下载</a>";
 			$this->unlink($dir);
+			return "<a class=\"class="btn btn-info"\" href=".$url.">下载</a>";
 		}
 		protected function size_jugg(){
 			if($_FILES['file']['size']<SIZE){
