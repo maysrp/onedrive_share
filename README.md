@@ -2,6 +2,10 @@
 利用Onedrive 作存储载体的个人分享网盘
 
 
+![share.png](http://bilibara.com/images/2017/03/13/share.png)
+
+![share2.png](http://bilibara.com/images/2017/03/13/share2.png)
+
 
 ##基础配置
 
