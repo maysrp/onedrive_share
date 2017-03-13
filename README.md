@@ -9,6 +9,10 @@
 
 onedrive安装：https://github.com/0oVicero0/OneDrive
 
+让你在其他用户也可以执行onedrive【这个比较粗暴】
+```
+$ chmod -R 777 /usr/local/etc/OneDrive/Business/ 
+ ```
 PHP>5.3 PHP<7
 
 ###文件配置
